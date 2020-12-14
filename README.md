@@ -60,42 +60,54 @@ El programa hace uso del método de verlet con el fin de simular una protón que
   Si desea correr la simulacion, seleccione la segunda opción del archivo <code>./run.sh</code>. Aquí, se le solicitarán algunos datos con el fin de correr la simulación. 
   <ol>
     <li> Primero, deberá ingresar el voltaje en voltios máximo. </li>
-    <li> Después, deberá ingresar la velocidad máxima, en m/s, que una partícula debe tener. Esta velocidad se multiplica por un número aleatorio entre 0 y 1 con el fin de generar partículas con diferentes velocidades (y momentos) iniciales. </li>
-    <li> Más adelante, deberá ingresar la magnitud del campo magnético B, en Tesla, que existirá en el espectrómetro de momentos. </li>
-    <li> Finalmente, deberá ingresar el paso temporal con el que desea realizar la simulación. Se recomiendan pasos temporales menores a <i>0.0001 s</i> con el fin de tener resultados precisos.  </li>
+    <li> A continuación, se debe introducir el radio del ciclotron en metros </li>
+    <li> Luego, es necesario poner el parámetro de la distancia entre las D's en metros </li>
+    <li> Por último, se introduce la energía que desea que la partícula alcance </li>
   </ol>
-  Si es la primera vez que se corre la simulación, se genera la carpeta <code>datos</code>, donde, por cada vez que se ejecuta el programa, se almacenan los datos de la simulación en una carpeta con la fecha en que se inició la simulación. Por ejemplo: <code>2020-11-05 16:56:29.880790</code> es una simulación que se inició el 5 de noviembre a las 16:56 horas. 
+  Si es la primera vez que se corre la simulación, se genera la carpeta <code>simulacion</code>, donde, por cada vez que se ejecuta el programa, se almacenan los datos de la simulación en una carpeta con la fecha en que se inició la simulación. Por ejemplo: <code>2020-12-14 16:56:29.880790</code> es una simulación que se inició el 14 de diciembre a las 16:56 horas. 
   Dentro de cada carpeta de simulación, se pueden encontrar los siguientes archivos y carpetas:
   <ul>
-    <li>Carpeta <code>trayectorias</code>: Almacena, en un archivo por partícula, las posiciones x,y,z, en cada momento del tiempo, de cada una de las partículas simuladas. <br/> Se generan tantos archivos como partículas se hayan simulado. <br/> El formato del archivo es: <code>x,y,z</code> y se almacena como <code>i.dat</code> donde <code>i</code> es el número de la partícula simulada.</li>
-    <li>Archivo <code>x_finales.dat</code>: Almacena las posiciones finales, en x, de cada una de las partículas. <br/> El formato del archivo es: <code>id_particula,x_final</code></li>
-    <li>Archivo <code>momentos.dat</code>: Almacena el momento inicial y final de cada partícula, calculados como p = qv y p = qBR, respectivamente. <br/> El formato del archivo es: <code>id_particula,x_inicial_x_final</code></li>
-    <li>Imagen <code>trayectorias.png</code>: Muestra gráficamente las trayectorias de cada una de las partículas simuladas en el espectrómetro de momentos. Dos imágenes ejemplo generadas con 5 y 100 part se muestran a continuación,
-      <p>Para 5 partículas:</p>
+    <li> Archivo de datos <code>E_v.dat</code>: Almacena los valores MagintudCampoElectrico, Diferencia MagnitudActual-MagnitudTotal(E0), MagnitudTotal(E_0), VelocidadY. Donde, se almacenan estos valores para cada vez que la partícula pase de la D superior a la inferior.
+    <li>Imagen <code>trayectoria_ciclotron.png</code>: Muestra gráficamente las trayectorias de la partícula simulada en el ciclotrón. Un ejemplo de una partcula que se acelera a 200MeV en un ciclotrón de radio 1 con un espacio entre las D's de 0.05 y voltaje de 110V.
       <p align="center">
-       <img src="imagenes/trayectorias.png" />
+       <img src="imagenes/trayectoria_ciclotron.png" />
       </p>
       <p>Para 100 partículas:</p>
+    </li>
+    <li>Imagen <code>periodo_vs_tiempo.png</code>: Muestra el tiempo que tarda la partícula en recorrer la parte superior del ciclotron para cada momento de tiempo que dura la simulación
       <p align="center">
-       <img src="imagenes/trayectorias_100.png" />
+       <img src="imagenes/periodo_vs_tiempo.png" width="50%" height="50%" />
       </p>
     </li>
-    <li>Imagen <code>momentos.png</code>: Muestra el momento final de una partícula en función de su momento inicial y realiza un ajuste lineal entre ambas cantidades. Una imagen ejemplo generada con 100 partículas, con un paso temporal de 1 microsegundo, se muestra a continuación,
+    <li>Imagen <code>px_vs_x.png</code>: Muestra el espacio de fase de las partículas en X. en el eje de las Y se encuentra el momento y en en el de las X la posición en X.
       <p align="center">
-       <img src="imagenes/momentos.png" width="50%" height="50%" />
+       <img src="imagenes/px_vs_x.png" width="50%" height="50%" />
       </p>
     </li>
-    <li>Imagen <code>error_momento.png</code>: Muestra el error en el momento (calculado como |p_final - p_inicial|) en función del momento inicial de las partículas. Entre más grande sea el paso temporal y/o la velocidad de las partículas, se espera un mayor error. Una imagen ejemplo generada con 100 partículas, con un paso temporal de 1 microsegundo, se muestra a continuación,
+    <li>Imagen <code>py_vs_y.png</code>: Muestra el espacio de fase de las partículas en Y. en el eje de las Y se encuentra el momento y en en el de las X la posición en Y.
       <p align="center">
-       <img src="imagenes/error_momento.png" width="50%" height="50%" />
+       <img src="imagenes/py_vs_y.png" width="50%" height="50%" />
       </p>
-</li>
+    </li>
+    <li>Imagen <code>energia_tiempo</code>: Muestra como aumenta la energia en funcion del tiempo. La energía es tomada cada vez que la partícula da una vuelta en el ciclotron.
+      <p align="center">
+       <img src="imagenes/energia_tiempo.png" width="50%" height="50%" />
+      </p>
+    </li>
+    <li>Imagen <code>r_xy_vs_r_momento.png</code>: Muestra el radio de la trayectoria de la partícula calculado de dos formas diferentes. El primero es usando r=sqrt(x^2+y^2) y el segundo como r=p/Bq. Como se ve en la imagen, ambas formas son consistentes, y generan una recta con pendiente 1, lo cual indica que el método usado es bueno
+      <p align="center">
+       <img src="imagenes/r_xy_vs_r_momento.png" width="50%" height="50%" />
+      </p>
+    </li>
+    <li>Imagen <code>vy_vx.png</code>: Muestra una gráfica de las velocidades en Y y en X para la partícula en el ciclotron
+      <p align="center">
+       <img src="imagenes/vy_vx.png" width="50%" height="50%" />
+      </p>
+    </li>}
+    <li>Imagen <code>ciclotron.mp4</code>: Una simulación de la partícula dentro del ciclotron en formato mp5
+      <p align="center">
+       <video src="imagenes/ciclotron.mp4" width=320  height=240 controls poster="vistaprevia.png">
+      </p>
+    </li>
   </ul>
-  Asimismo, dentro de la carpeta <code>datos</code>, se genera un archivo <code>errores.dat</code>, con el formato <code>delta_tiempo,error_maximo,error_medio</code>, donde <code>delta_tiempo</code> corresponde al paso temporal usado en una simulación y <code>error_maximo</code> y <code>error_medio</code> el error más alto y el error promedio en el momento p, calculado como |p_final - p_inicial|, de cada simulación. Cada vez que se corre una simulación, se agregan estos datos a dicho archivo. <br/>
-  Con los datos de este archivo, corriendo el script <code>grafica_errores.py</code>, o ejecutando la opción 4 del script <code>./run.sh</code>, se genera la gráfica mostrada a continuación,
-        <p align="center">
-       <img src="imagenes/error_momento_tiempo.png" width="50%" height="50%" />
-      </p>
-  Esta permite visualizar el error en el momento según el paso temporal utilizado en la simulación. Esta gráfica se almacena en la ruta <code>datos/error_momento_tiempo.png</code>. <br/>
-  <b>NOTA:</b> Para correr esta opción, es necesario haber corrido, por lo menos, dos veces la simulación de la parte 1 con diferentes pasos temporales. 
   </li>
