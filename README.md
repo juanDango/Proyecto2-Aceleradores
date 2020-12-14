@@ -103,7 +103,7 @@ El programa hace uso del método de verlet con el fin de simular una protón que
       <p align="center">
        <img src="imagenes/vy_vx.png" width="50%" height="50%" />
       </p>
-    </li>}
+    </li>
     <li>Imagen <code>ciclotron.mp4</code>: Una simulación de la partícula dentro del ciclotron en formato mp5
       <p align="center">
        <video src="imagenes/ciclotron.mp4" width=320  height=240 controls poster="vistaprevia.png">
