@@ -22,7 +22,7 @@ El objetivo de este proyecto fue el de simular la trayectoria de un protón acel
 El ciclotrón es una máquina propuesta por Ernest Lawrence, la cual tiene como objetivo el acelerar iones a altas energías haciendo uso de voltajes pequeños. En si, el diseño está compuesto por dos semicírculos en los cuales hay un campo magnético constante perpendicular al plano de los semicírculos. Asimismo, el espacio entre las dos regiones con forma de D se encuentra un campo eléctrico conectado a una fuente AC, el cual se encarga de aumentar la energía de las partículas.
 </p>
 <p align="center">
-<img src="imagenes/Feynman_theta.png" />
+<img src="Ciclotron.png" />
 </p>
 <p align="justify">
  En el segundo programa se simulan partículas que entran con un ángulo de incidencia theta_0 medido respecto al eje y. Para este caso se estudiaron dos escenarios. El primero consistía en variar la velocidad de salida mientras se mantenía constante theta_0  y el segundo que variaba theta_0, manteniendo constante la magnitud de la velocidad. Para cada partícula que salía con un ángulo theta_0 se simulaba una segunda que incidía en un ángulo -theta_0. El campo magnético se aplicó nuevamente con una magnitud B=8T en la dirección k con una carga de magnitud q = 5C. En teoría, el punto donde finalizan ambas trayectorias debe coincidir, lo cual genera un efecto de enfoque. El montaje se puede ver en la figura mostrada a continuación. El archivo que contiene el código está en el repositorio que se encuentra al final del documento en el archivo <code>parte2/parte2.py</code>.
