@@ -22,7 +22,7 @@ El objetivo de este proyecto fue el de simular la trayectoria de un protón acel
 El ciclotrón es una máquina propuesta por Ernest Lawrence, la cual tiene como objetivo el acelerar iones a altas energías haciendo uso de voltajes pequeños. En si, el diseño está compuesto por dos semicírculos en los cuales hay un campo magnético constante perpendicular al plano de los semicírculos. Asimismo, el espacio entre las dos regiones con forma de D se encuentra un campo eléctrico conectado a una fuente AC, el cual se encarga de aumentar la energía de las partículas.
 </p>
 <p align="center">
-<img src="Ciclotron.PNG" />
+<img src="imagenes/Ciclotron.PNG" />
 </p>
 <p align="justify">
 El programa hace uso del método de verlet con el fin de simular una protón que entra dentro de un ciclotrón. Esta partícula seguirá movimientos circulares en la región con form de D, con una frecuencia w = B|q|/m. De esta forma, se construye una región con campo electrico oscilante a una frecuencia w_osc. La idea es entonces que w_osc = w, lo cual permite que el protón encuentre el campo en la dirección que necesita para acelerarse.
